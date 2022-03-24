@@ -1,1 +1,14 @@
 #!/bin/bash
+
+low=$(($1 > $2 ? $2 : $1))
+high=$(($1 > $2 ? $1 : $2))
+for ((i = $low ; i <= $high; i++));
+do
+  val=$(($i%9))
+  val2=$(($i%7))
+  if [ $val == 1 ] && [ $val2 == 2 ]
+    then
+      output="$output[M: $i B: $(($i/7)) C: $(($i/9))]"
+  fi
+done
+echo $output
