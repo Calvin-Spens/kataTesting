@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ $1 -ge $2 ]
+then
+  echo '-1 -1 -1'
+else
+  hrs=$(($3 / ($2-$1)))
+  min=$((60*$3/($2-$1)%60))
+  sec=$((3600*$3/($2-$1)%60))
+  echo $hrs $min $sec
+fi
