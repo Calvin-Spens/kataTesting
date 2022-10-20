@@ -22,40 +22,22 @@
 
 #productFib(800) # should return (34, 55, false),
                 # since F(8) = 21, F(9) = 34, F(10) = 55 and 21 * 34 < 800 < 34 * 55
-#-----
-#productFib(714) # should return [21, 34, true],
-#productFib(800) # should return [34, 55, false],
-#-----
-#productFib(714) # should return {21, 34, 1},
-#productFib(800) # should return {34, 55, 0},
-#-----
-#productFib(714) # should return {21, 34, true},
-#productFib(800) # should return {34, 55, false},
-#Note:
-#You can see examples for your language in "Sample Tests".
-fib () {
-  if [ $1 -gt 2 ]
-  then
-    N=$1-2 a=0 b=1
-    for (( i=0; i<$N; i++))
-    do
-      fn=$((a+b)) a=$b b=$fn
-    done
-  else
-    fn=$(($1-1))
-  fi
+
+fib()
+{
+  n=$1
+  a=0
+  b=1
+  m=0
+  while (( n > m ))
+  do
+    c=$a
+    a=$b
+    ((b+=c))
+    m=$(($a * $b))
+  done
+  (( m == n )) && echo "$a $b true" || echo "$a $b false"
 }
 
-product=0
-x=1
-while [ $product -lt $1 ]
-do
-  fib $x
-  first=$fn
-  fib $(($x+1))
-  second=$fn
-  x=$(( $x+1 ))
-  product=$((first*second))
-done
-[[ $product == $1 ]] && facts=1 || facts=0
-echo "[$first, $second, $facts]"
+
+fib $1                
