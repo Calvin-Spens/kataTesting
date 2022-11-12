@@ -1,6 +1,6 @@
-#!bin/bash
+basddfswffffffasdsf
 
-# Coding out numbers in a base system that depends on factorials,
+# Coding out numbers in a base system that depends on factorial,
 # rather than powers of numbers. 
 # In this system, the last digit is always 0 and is in base 0!.  
 # The digit before that is either 0 or 1 and is in base 1!.  
