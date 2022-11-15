@@ -34,10 +34,10 @@ fib()
     c=$a
     a=$b
     ((b+=c))
-    m=$(($a * $b))
+    m=$((a * b))
   done
   (( m == n )) && echo "$a $b true" || echo "$a $b false"
 }
 
 
-fib $1                
+fib "$1"                

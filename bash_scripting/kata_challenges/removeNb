@@ -45,16 +45,16 @@
 sum=0
 for (( i=1; i<=$1; i++ )) 
 do
-    sum=$(($sum+$i))
+    sum=$((sum+i))
 done
 
 for (( i=1; i<=$1; i++ )) 
 do 
-    new=$(($sum-$i))
-    remainder=$(($new%$i))
-    prod=$(($remainder*$i))
-    subt=$(($new-$remainder))
-    (( $subt == $prod )) && echo "$remainder $i,$i $remainder"
+    new=$((sum-i))
+    remainder=$((new%i))
+    prod=$((remainder*i))
+    subt=$((new-remainder))
+    (( subt == prod )) && echo "$remainder $i,$i $remainder"
 done
 
 echo "hello there"

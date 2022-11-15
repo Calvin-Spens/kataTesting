@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #In DNA strings, symbols "A" and "T" are complements of each other,
 #as "C" and "G". You function receives one side of the DNA
 #(string, except for Haskell); you need to return the
@@ -35,4 +36,4 @@
 
 #This is the one line version that I learned from other examples
 
-echo "dnaStrand [$1] 'shouldBe' [$(echo $1 | tr 'ATCG' 'TAGC')]"
+echo "dnaStrand [$1] 'shouldBe' [$(echo "$1" | tr 'ATCG' 'TAGC')]"
