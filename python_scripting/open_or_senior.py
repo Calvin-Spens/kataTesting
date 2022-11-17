@@ -20,12 +20,16 @@
 # respective member is to be placed in the senior or open category.
 
 def open_or_senior(data):
-    categeory = []
-    for age_score in data:
-        if age_score[0] > 54 and age_score[1] > 7:
-            categeory.append("Senior")
-        else: 
-            categeory.append("Open")
-    return categeory
+#     categeory = []
+#     for age_score in data:
+#         if age_score[0] > 54 and age_score[1] > 7:
+#             categeory.append("Senior")
+#         else: 
+#             categeory.append("Open")
+#     return categeory
+#
+# print(open_or_senior([(45, 12),(55,21),(19, -2),(104, 20)])) 
 
-print(open_or_senior([(45, 12),(55,21),(19, -2),(104, 20)])) 
+    return ["Senior" if age >= 55 and handicap >= 8 else "Open" for (age, handicap) in data]
+
+# print(open_or_senior([(45, 12),(55,21),(19, -2),(104, 20)])) 
