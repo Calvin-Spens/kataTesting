@@ -60,7 +60,7 @@ def convert(time):
 
 
 meal()
-#interpreter()    
-#extensions()
-#deep()
-#bank()
+interpreter()    
+extensions()
+deep()
+bank()
