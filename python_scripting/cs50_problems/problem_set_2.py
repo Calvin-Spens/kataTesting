@@ -3,7 +3,9 @@ def main():
     #camel()
     #coke()
     #twttr()
-    plates()
+    #plates()
+    nutrition()
+
 
 def camel():
     name = input("Camel Case: ")
@@ -48,12 +50,58 @@ def plates():
         print("Invalid")
 
 def is_valid(plate):
-    if len(plate) > 6 | len(plate) < 2:
+    if len(plate) < 2 or len(plate) > 6:
+        print("Too long or too short")
         return False
-    elif plate[0].isdigit() | plate[1].isdigit():
+    if plate[0].isdigit() | plate[1].isdigit():
+        print("The first 2 characters must be letters")
         return False
-    else:
-        return True
+    if not plate.isalnum():
+        print("No special characters")
+        return False
+    for i in range(len(plate)):
+        if plate[i].isdigit():
+            if int(plate[i]) == 0:
+                print("The first number can't be a 0")
+                return False
+            for j in range(i, len(plate)):
+                if plate[j].isalpha():
+                    print("Numbers must be at the end")
+                    return False
+            break 
+    return True
+
+def nutrition():
+    fruit = input("Item: ")
+    fruit_facts(fruit)
+
+def fruit_facts(fruit):
+    fruits = [
+        {"Fruit": "Apple", "Callories": 130},
+        {"Fruit": "Avocado", "Callories": 50},
+        {"Fruit": "Banana", "Callories": 110},
+        {"Fruit": "Cantaloupe", "Callories": 50},
+        {"Fruit": "Grapefruit", "Callories": 60},
+        {"Fruit": "Grapes", "Callories": 90},
+        {"Fruit": "Honeydew Melon", "Callories": 50},
+        {"Fruit": "Kiwifruit", "Callories": 90},
+        {"Fruit": "Lemon", "Callories": 15},
+        {"Fruit": "Lime", "Callories": 20},
+        {"Fruit": "Nectarine", "Callories": 60},
+        {"Fruit": "Orange", "Callories": 80},
+        {"Fruit": "Peach", "Callories": 60},
+        {"Fruit": "Pear", "Callories": 100},
+        {"Fruit": "Pineapple", "Callories": 50},
+        {"Fruit": "Plums", "Callories": 70},
+        {"Fruit": "Straberries", "Callories": 50},
+        {"Fruit": "Sweet Cherries", "Callories": 100},
+        {"Fruit": "Tangerine", "Callories": 50},
+        {"Fruit": "Watermelon", "Callories": 80}
+    ]
+    for i in fruits:
+        if i["Fruit"] == fruit:
+            print("Calories: " + str(i["Callories"]))
+
 
 
 main()
