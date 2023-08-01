@@ -1,5 +1,6 @@
 def main():
-    fuel()
+    #fuel()
+    taqueria()
 
 def fuel():
     tank = float(tank_status()) * 100
@@ -21,4 +22,12 @@ def tank_status():
         if gas <= 1:
             return f'{gas:.2f}'
         print("Can't overfill your gas tank")
+
+def taqueria():
+    while True :
+        item = input("Item: ")
+        
+
+    pass 
+
 main()
