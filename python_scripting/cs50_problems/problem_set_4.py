@@ -1,6 +1,7 @@
 import emoji
 from pyfiglet import Figlet
 import sys
+import random
 
 # def main():
 #     print("Which Program do you want to run?")
@@ -25,10 +26,18 @@ import sys
 def FIGlet():
     figlet = Figlet()
 
-    if len(sys.argv) == 3:
-        if sys.argv != ''
+    if len(sys.argv) == 1:
+        figlet = Figlet(font=random.choice(Figlet().getFonts()))
+    elif len(sys.argv) == 3:
+        if sys.argv[1] == "-f" or sys.argv[1] == "--font":
+            if sys.argv[2] in Figlet().getFonts():
+                figlet = Figlet(font=sys.argv[2]) 
+            # else:
+            #     sys.exit("not correct font")
     else:    
         sys.exit("Invalid usage")
+
+
     phrase = input("Input: ")
     print(figlet.renderText(phrase))
 
