@@ -2,11 +2,13 @@ import emoji
 from pyfiglet import Figlet
 import sys
 import random
+import inflect
 
 def main():
     print("Which Program do you want to run?")
     print("1: emojize")
     print("2: FIGlet")
+    print("3: adieu")
     print("q: exit")
     which_func = input(">> ")
     match which_func:
@@ -14,10 +16,12 @@ def main():
             emojize()
         case '2': 
             FIGlet()
+        case '3':
+            adieu()
         case 'q' | 'Q':
             return
         case _:
-            print("Not a valid option")    
+            print("Not a valid option\n")    
     main()            
 
 def emojize():
@@ -65,6 +69,24 @@ def FIGlet():
 
 #     phrase = input("Input: ")
 #     print(figlet.renderText(phrase))
+
+def get_names():
+    names = []
+    print("Who do you want to bid Adieu to?")
+    try:
+        while True:
+            name = input("")
+            names.append(name)
+    except EOFError:
+        pass 
+
+    return names
+
+def adieu():
+    p = inflect.engine()
+    leavers = get_names()
+    bye = p.join(leavers)
+    print("Adieu, adieu, to", bye, "\n")
 
 if __name__ == "__main__":
     main()
