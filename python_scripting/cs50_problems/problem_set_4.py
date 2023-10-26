@@ -9,6 +9,7 @@ def main():
     print("1: emojize")
     print("2: FIGlet")
     print("3: adieu")
+    print("4: guess_game")
     print("q: exit")
     which_func = input(">> ")
     match which_func:
@@ -18,6 +19,8 @@ def main():
             FIGlet()
         case '3':
             adieu()
+        case '4':
+            guess_game()
         case 'q' | 'Q':
             return
         case _:
@@ -87,6 +90,34 @@ def adieu():
     leavers = get_names()
     bye = p.join(leavers)
     print("Adieu, adieu, to", bye, "\n")
+
+def guess_game():
+    while True:
+        try:
+            high_num = int(input("Level: "))
+            if high_num > 0:
+                break
+            else:
+                pass
+        except ValueError:
+            pass
+
+    ans = random.randint(1, high_num)
+
+    while True:
+        try:
+            guess = int(input("Guess: "))
+            if guess <= 0:
+                pass
+            elif guess > ans:
+                print('Too large!')
+            elif guess < ans:
+                print('Too small!')
+            else:
+                print('Just right!\n')
+                break
+        except ValueError:
+            pass
 
 if __name__ == "__main__":
     main()
