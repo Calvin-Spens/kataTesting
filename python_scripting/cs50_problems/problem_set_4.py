@@ -10,6 +10,7 @@ def main():
     print("2: FIGlet")
     print("3: adieu")
     print("4: guess_game")
+    print("5: little_professor")
     print("q: exit")
     which_func = input(">> ")
     match which_func:
@@ -21,6 +22,8 @@ def main():
             adieu()
         case '4':
             guess_game()
+        case '5':
+            little_professor()
         case 'q' | 'Q':
             return
         case _:
@@ -118,6 +121,21 @@ def guess_game():
                 break
         except ValueError:
             pass
+
+def little_professor():
+    get_level()   
+    print(generate_integer())
+def get_level():
+    level = 0
+    while 0 > level > 3:
+        try:
+            level = int(input("Level: "))
+        except:
+            pass
+
+def generate_integer(level):
+    return (random.randint(1, (10**level)))
+
 
 if __name__ == "__main__":
     main()
