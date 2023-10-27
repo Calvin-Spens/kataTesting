@@ -122,19 +122,41 @@ def guess_game():
         except ValueError:
             pass
 
-def little_professor():
-    get_level()   
-    print(generate_integer())
+def little_professor():   
+    level = get_level()
+    score = 0 
+
+    for _ in range(10):
+        num_1 = generate_integer(level)
+        num_2 = generate_integer(level)
+        ans = num_1 + num_2
+ 
+        for i in range(3):
+            try:
+                usr_ans = int(input(f"{num_1} + {num_2} = ")) 
+            except:
+                usr_ans = -1
+            if usr_ans == ans:
+                score += 1
+                break
+            else: 
+                print('EEE')
+            if i == 2:
+                print(f"{num_1} + {num_2} = {ans}")
+                
+    print(f"Score: {score}\n")
+
 def get_level():
-    level = 0
-    while 0 > level > 3:
+    usr_level = 0
+    while not (0 < usr_level <= 3):
         try:
-            level = int(input("Level: "))
+            usr_level= int(input("Level: "))
         except:
             pass
+    return usr_level
 
 def generate_integer(level):
-    return (random.randint(1, (10**level)))
+    return (random.randint(1, 10 ** level))
 
 
 if __name__ == "__main__":
