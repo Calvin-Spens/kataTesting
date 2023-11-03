@@ -179,7 +179,6 @@ def bitcoin():
     total = amount * bit_price
     
     print(f"${total:,.4f}\n")
-
 ### This is how the actual problem is solved ###
 # def bitcoin():
 #     try:
