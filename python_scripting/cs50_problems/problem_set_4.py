@@ -3,6 +3,8 @@ from pyfiglet import Figlet
 import sys
 import random
 import inflect
+import requests 
+import json 
 
 def main():
     print("Which Program do you want to run?")
@@ -11,6 +13,7 @@ def main():
     print("3: adieu")
     print("4: guess_game")
     print("5: little_professor")
+    print("6: bitcoin")
     print("q: exit")
     which_func = input(">> ")
     match which_func:
@@ -24,6 +27,8 @@ def main():
             guess_game()
         case '5':
             little_professor()
+        case '6':
+            bitcoin()
         case 'q' | 'Q':
             return
         case _:
@@ -157,6 +162,40 @@ def get_level():
 
 def generate_integer(level):
     return (random.randint(1, 10 ** level))
+
+def bitcoin():
+    while True:
+        try:
+            amount = float(input("How many bitcoins?: "))
+            break
+        except IndexError:
+            print("Missing amount")
+        except ValueError:
+            print("Not a number")
+
+    response = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json") 
+    o = response.json()
+    bit_price = float(o["bpi"]["USD"]["rate"].replace(",", ""))
+    total = amount * bit_price
+    
+    print(f"${total:,.4f}\n")
+
+### This is how the actual problem is solved ###
+# def bitcoin():
+#     try:
+#         amount = float(sys.argv[1])
+#     except IndexError:
+#         sys.exit("Missing command-line argument")
+#     except ValueError:
+#         sys.exit("Command-line argument is not a number")
+
+#     response = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json") 
+#     o = response.json()
+#     bit_price = float(o["bpi"]["USD"]["rate"].replace(",", ""))
+#     total = amount * bit_price
+    
+#     print(f"${total:,.4f}")
+# bitcoin()
 
 
 if __name__ == "__main__":
