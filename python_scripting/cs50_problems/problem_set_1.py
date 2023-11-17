@@ -59,8 +59,8 @@ def convert(time):
     return(int(time.split(":")[0])+(int(time.split(":")[1]) / 60))
 
 
-meal()
-interpreter()    
-extensions()
-deep()
+#meal()
+#interpreter()    
+#extensions()
+#deep()
 bank()
