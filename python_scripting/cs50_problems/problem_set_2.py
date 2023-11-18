@@ -103,5 +103,5 @@ def fruit_facts(fruit):
             print("Calories: " + str(i["Callories"]))
 
 
-
-main()
+if __name__ == "__main__":
+    main()
