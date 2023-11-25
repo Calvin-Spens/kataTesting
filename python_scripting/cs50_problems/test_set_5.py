@@ -24,3 +24,6 @@ def test_is_valid():
     assert is_valid("PI3.14") == False
     assert is_valid("H") == False
     assert is_valid("OUTATIME") == False
+
+def test_tank_status():
+    assert 
