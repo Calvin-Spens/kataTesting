@@ -1,6 +1,8 @@
 from problem_set_5 import shorten
 from problem_set_5 import bank
 from problem_set_2 import is_valid
+from problem_set_3 import fuel, tank_status
+
 
 def test_shorten():
     assert shorten("Why so Serious") == "Why s Srs"
@@ -24,3 +26,16 @@ def test_is_valid():
     assert is_valid("PI3.14") == False
     assert is_valid("H") == False
     assert is_valid("OUTATIME") == False
+
+def test_fuel():
+    assert fuel(75) == "75%"
+    assert fuel(1) == "E"
+    assert fuel(99) == "F"
+    assert fuel(98) == "98%"
+    assert fuel(2) == "2%"
+    assert tank_status("1/4") == "0.25"
+    assert tank_status("1/0") == 2
+    assert tank_status("4/2") == 2
+    assert tank_status("3/4") == "0.75"
+    assert tank_status("4/4") == "1.00"
+    assert tank_status("0/4") == "0.00"

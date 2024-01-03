@@ -1,35 +1,34 @@
 def main():
-    tank_amount = fuel()
-    #taqueria()
+    fuel_main()
+    
+def fuel_main():
+    percent = 2
+    while float(percent) > 1: 
+        fraction = input("Fraction [x/x]:")
+        percent = tank_status(fraction)
+    tank_amount = fuel(float(percent)*100)
     print(tank_amount)
 
-def fuel_main():
-    fraction = input("Fraction [x/x]:")
-    gague = tank_status(fraction)
-
-def fuel():
-    tank = float(tank_status()) * 100
-    if tank <= 1:
+def fuel(pcent):
+    if float(pcent) <= 1:
         return 'E'
-    elif tank >= 99:
+    elif float(pcent) >= 99:
         return 'F'
     else:
-        return (str(int(tank)) + "%")
+        return (str(int(pcent)) + "%")
 
 def tank_status(fraction):
     nums = fraction.split("/")
     try:
         gas = int(nums[0]) / int(nums[1])
-    except: 
-        print("That's not a proper fraction")
-        fuel_main()
+    except (ValueError, ZeroDivisionError):
+        gas = 2
+        return gas
     
     if gas <= 1:
         return f'{gas:.2f}'
     else:
-        print("Can't overfill your gas tank")
-
-    fuel_main()
+        return gas
     
 def taqueria():
     while True :
