@@ -9,16 +9,22 @@ def main():
         sys.exit("Too many comand-line arguments")
         
     try:
-        open(test_file, "r")
+        file = open(test_file)
     except FileNotFoundError:
         print("File does not exist")
+    file.close
+
+    code_lines = get_line_num(test_file)
+
+    print(code_lines)
     
-    lines = 
-
-    print(test_file)
-
-def get_line_num():
-    ...
+def get_line_num(code_file):
+    with open(code_file) as file:
+        lines = file.readlines()
+        non_blank = [line for line in lines if line.strip() != '']
+        non_comment = [line for line in non_blank if not line.lstrip().startswith('#')]
+        return len(non_comment)
+    
 
 if __name__ == "__main__":
     main() 

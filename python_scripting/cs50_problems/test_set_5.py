@@ -2,7 +2,7 @@ from problem_set_5 import shorten
 from problem_set_5 import bank
 from problem_set_2 import is_valid
 from problem_set_3 import fuel, tank_status
-
+from lines_of_code import get_line_num
 
 def test_shorten():
     assert shorten("Why so Serious") == "Why s Srs"
@@ -39,3 +39,6 @@ def test_fuel():
     assert tank_status("3/4") == "0.75"
     assert tank_status("4/4") == "1.00"
     assert tank_status("0/4") == "0.00"
+
+def test_get_line_num():
+    assert get_line_num("lines_of_code.py") == 23
