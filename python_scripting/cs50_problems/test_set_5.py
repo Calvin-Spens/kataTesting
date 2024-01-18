@@ -42,3 +42,5 @@ def test_fuel():
 
 def test_get_line_num():
     assert get_line_num("lines_of_code.py") == 23
+    assert get_line_num("problem_set_4.py") == 144
+    

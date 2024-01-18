@@ -21,7 +21,7 @@ def main():
 def get_line_num(code_file):
     with open(code_file) as file:
         lines = file.readlines()
-        non_blank = [line for line in lines if line.strip() != '']
+        non_blank = [line for line in lines if line.lstrip() != '']
         non_comment = [line for line in non_blank if not line.lstrip().startswith('#')]
         return len(non_comment)
     
