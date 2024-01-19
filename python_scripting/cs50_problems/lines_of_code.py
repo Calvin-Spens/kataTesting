@@ -11,7 +11,7 @@ def main():
     try:
         file = open(test_file)
     except FileNotFoundError:
-        print("File does not exist")
+        sys.exit("File does not exist")
     file.close
 
     code_lines = get_line_num(test_file)
