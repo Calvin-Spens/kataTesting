@@ -2,7 +2,7 @@ import sys
 import csv
 import tabulate
 
-def check_file():
+def check_csv_file():
     try:
         test_file = sys.argv[1]
         open(test_file).close
@@ -17,7 +17,7 @@ def check_file():
         sys.exit("Not a CSV file")   
 
 def main():
-    check_file()
+    check_csv_file()
     menu = []
     file_import = sys.argv[1]
 
