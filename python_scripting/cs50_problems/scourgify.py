@@ -19,7 +19,12 @@ def check_csv_file():
 def main():
     check_csv_file()
     
-    ...
+    name_house = sys.argv[1]
+    with open(name_house) as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            print(f"{row['name']} from {row['house']}")
+
 
 if __name__ == "__main__":
     main()
