@@ -1,6 +1,5 @@
 import sys
 import csv
-import tabulate
 
 def check_csv_file(test_file):
     try:
